@@ -18,6 +18,7 @@ const Signup = () => {
     setShowPassword(prev => !prev);
   }
 
+  axios.defaults.withCredentials = true;
   const handleSingup = async () => {
     let res;
     try{

@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from 'axios'
 
+axios.defaults.withCredentials = true;
 export const addExpenseTransactionAndFetch = (title, amount) => async (dispatch) => {
     try {
       const addRes = await axios.post('https://expense-tracker-two-weld.vercel.app/expense/addtransaction', {

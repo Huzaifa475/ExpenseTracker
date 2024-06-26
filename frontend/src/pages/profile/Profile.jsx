@@ -20,6 +20,7 @@ const Profile = () => {
     const [previewUrl, setPreviewUrl] = useState(null);
     const [avatar, setAvatar] = useState(null)
 
+    axios.defaults.withCredentials = true;
     useEffect(() => {
         const fetchUser = async () => {
             try {

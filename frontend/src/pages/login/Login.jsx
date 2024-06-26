@@ -35,6 +35,7 @@ const Login = () => {
     setUsername('')
   }
 
+  axios.defaults.withCredentials = true;
   const handleLogin = async () => {
     let res;
     try {
