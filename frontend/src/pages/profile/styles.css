@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-color: #002D62;
+    --secondary-color: #2e2e2e;
+    --background-image: linear-gradient(111.4deg, rgba(7, 7, 9, 1) 6.5%, rgba(27, 24, 113, 1) 93.2%);
+    ;
+    font-family: "Roboto", "Noto Sans", sans-serif;
+}
+
+.profile-container {
+    width: 100vw;
+    height: 90vh;
+    padding: 1rem;
+    overflow-y: scroll;
+}
+
+.profile-main-container {
+    width: 100%;
+    height: fit-content;
+    padding: 1rem;
+    border-radius: 0.9rem;
+    background-color: #d9d9d9;
+    display: flex;
+}
+
+.avatar {
+    width: 20%;
+    height: 60%;
+    padding: 2rem;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.upload {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+}
+
+.upload-file {
+    position: relative;
+    overflow: hidden;
+    width: 150px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #2e2e2e;
+    color: white;
+    font-size: 16px;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.upload-file input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+button[type="submit"] {
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2e2e2e;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #2a2a2a;
+}
+
+.profile-main-content {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    gap: 1rem;
+    padding: 2rem;
+    flex-direction: column;
+}
+
+.profile-username,
+.profile-email,
+.logout-button {
+    padding: 0.3rem;
+    color: #2e2e2e;
+}
+
+.logout-button button {
+    outline: none;
+    border: none;
+    width: 5.5rem;
+    height: 2.3rem;
+    border-radius: 0.4rem;
+    background-color: #2e2e2e;
+    color: unset;
+    color: white;
+}
+
+.logout-button button:hover {
+    background-color: #2a2a2a;
+}

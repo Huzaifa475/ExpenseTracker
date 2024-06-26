@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --primary-color: #002D62;
+    --secondary-color: #2e2e2e;
+    --background-image: linear-gradient( 111.4deg,  rgba(7,7,9,1) 6.5%, rgba(27,24,113,1) 93.2% );;
+    font-family: "Roboto", "Noto Sans",sans-serif;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    box-shadow: 0 0 0 30px white inset !important;
+    -webkit-text-fill-color: #2e2e2e !important;
+    transition: #2a2a2a 5000s ease-in-out 0s;
+}
+
+.login-container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url('../../assets/bg.jpg');
+    background-repeat: no-repeat;
+}
+
+.wrapper{
+    width: 22rem;
+    height: 19rem;
+    background-color: #d9d9d9;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.8rem;
+    padding: 0.5rem;
+}
+
+@media screen and (max-width: 600px){
+    .wrapper{
+        position: relative;
+        left: 0;
+    }
+    .login-container{
+        align-items: center;
+    }
+}
+
+.login-title{
+    width: 18rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-title h1{
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: #2e2e2e;
+}
+
+.username-container{
+    width: 18rem;
+    height: 2.5rem;
+}
+
+.username-container input{
+    width: 100%;
+    height: 100%;
+    padding: 0.3rem;
+    background-color: #2e2e2e;
+    border: 0.5px solid black;
+    border-radius: 0.5rem;
+    outline: none;
+    color: white;
+}
+
+.username-container input::placeholder{
+    color: white;
+    font-family: "Noto Sans";
+}
+
+
+.password-container{
+    width: 18rem;
+    height: 2.5rem;
+}
+
+.password-field{
+    width: 18rem;
+    height: 2.5rem;
+}
+
+.password-container input{
+    width: 88%;
+    height: 100%;
+    padding: 0.3rem;
+    background-color: #2e2e2e;
+    border: 0.5px solid black;
+    color: white;
+    border-right: none;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    outline: none;
+}
+
+.password-container input::placeholder{
+    color: white;
+    font-family: "Noto Sans";
+}
+
+.password-container button{
+    width: 12%;
+    height: 100%;
+    padding: 0.1rem;
+    border: 0.5px solid black;
+    background-color: #2e2e2e;
+    border: none;
+    border-left: 0.5px solid #d9d9d9;
+    outline: none;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+
+.white-icon{
+    color: white;
+}
+
+.page-button{
+    width: 18rem;
+    height: 2.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+}
+
+.login-button{
+    width: 6rem;
+    height: 2rem;
+    border-radius: 0.3rem;
+    outline: none;
+    border: none;
+    color: white;
+    background-color: #2e2e2e;
+    font-weight: 700;
+}
+
+.login-button:hover{
+    background-color: #212121;
+}
+
+.wrapper input:focus{
+    background-color: #212121;
+}

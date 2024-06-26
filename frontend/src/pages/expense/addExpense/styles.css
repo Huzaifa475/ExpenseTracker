@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --primary-color: #002D62;
+    --secondary-color: #6699CC;
+    --background-image: linear-gradient( 111.4deg,  rgba(7,7,9,1) 6.5%, rgba(27,24,113,1) 93.2% );;
+    font-family: "Roboto", "Noto Sans",sans-serif;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 2px;
+    background-color: #d9d9d9;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #2e2e2e;
+}
+
+.main-container{
+    height: 90vh;
+    width: 100vw;
+    padding: 1rem;
+}
+
+.expense-container{
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #d9d9d9;
+    gap: 1.5rem;
+    overflow: hidden;
+}
+
+.expense-title{
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 0.4rem;
+}
+
+.expense-title h1{
+    padding: 0.4rem;
+    font-size: 24px;
+    font-weight: 400;
+    color: #2e2e2e;
+}
+
+.expense-total{
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 0.4rem;
+}
+
+.expense-total h1{
+    font-size: 24px;
+    font-weight: 400;
+    color: #2e2e2e;
+}
+
+.expense-main{
+    width: 100%;
+    height: 100vh;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.expense-input{
+    width: 22%;
+    padding-top: 2rem;
+    padding-right: 1rem;
+    border-right: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.expense-input input{
+    width: 100%;
+    height: 2.5rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.3rem;
+}
+
+.expense-input input:focus{
+    outline: none;
+}
+
+.expense-input button{
+    width: 7rem;
+    height: 2.5rem;
+    border: none;
+    color: white;
+    background-color: #2e2e2e;
+    border-radius: 0.7rem;
+    align-self: flex-end;
+}
+
+.expense-output{
+    width: 78%;
+    height: 100%;
+    margin: 1rem;
+    overflow-y: auto;
+    margin-top: unset;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.transaction{
+    width: 100%;
+    height: 3.5rem;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: white;
+    border-radius: 0.3rem;
+}
+
+.transaction-title h1{
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.transaction-container{
+    width: 96%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.1rem;
+}
+
+.transaction-container-title{
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    gap: 6rem;
+}
+
+.transaction-container-title h1{
+    font-size: smaller;
+    color: #2e2e2e;
+}
+
+.transaction-container-button{
+    width: 4%;
+}
+
+@media screen and (max-width: 645px){
+    .expense-main{
+        flex-direction: column;
+    }
+    .expense-input{
+        width: 100%;
+        border-right: unset;
+        border-bottom: 1px solid white;
+    }
+    .expense-output{
+        margin-top: 1rem;
+        width: 94%;
+    }
+}
