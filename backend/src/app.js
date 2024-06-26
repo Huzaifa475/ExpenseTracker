@@ -6,7 +6,7 @@ import mongoose from 'mongoose';
 const app = express();
 
 app.use(cors({
-    origin: ["https://deploy-mern-1whq.vercel.app"],
+    origin: ["https://expense-tracker-two-weld.vercel.app/"],
     methods: ["POST", "GET", "DELETE", "PATCH"],
     credentials: true
 }));
