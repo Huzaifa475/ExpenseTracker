@@ -5,7 +5,8 @@ import cookieParser from 'cookie-parser'
 const app = express();
 
 app.use(cors({
-    origin: process.env.CROS_ORIGIN || "*",
+    origin: ["https://deploy-mern-1whq.vercel.app"],
+    methods: ["POST", "GET", "DELETE", "PATCH"],
     credentials: true
 }));
 
