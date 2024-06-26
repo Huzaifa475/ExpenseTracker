@@ -40,7 +40,7 @@ const Login = () => {
     try {
       res = await axios({
         method: "post",
-        url: "/api/v1/users/login",
+        url: "/users/login",
         data: {
           username,
           password

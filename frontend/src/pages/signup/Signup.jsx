@@ -23,7 +23,7 @@ const Signup = () => {
     try{
         res = await axios({
           method: 'post',
-          url: '/api/v1/users/register',
+          url: '/users/register',
           data: {
             username,
             email,
