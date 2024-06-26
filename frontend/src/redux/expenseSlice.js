@@ -37,7 +37,7 @@ export const addExpenseTransactionAndFetch = (title, amount) => async (dispatch)
             console.log(fetchRes);
       dispatch(setExpenseTransactions(fetchRes.data?.data));
     } catch (error) {
-        dispatch(setError(error.message));
+        // dispatch(setError(error.message));
       console.error(error);
     }
 };
@@ -54,7 +54,7 @@ export const fetchExpenses = () => async (dispatch) => {
         }})
         dispatch(setExpenseTransactions(res.data?.data));
     } catch (error) {
-        dispatch(setError(error.message));
+        // dispatch(setError(error.message));
         console.log(error);
     }
 };
@@ -79,7 +79,7 @@ export const deleteExpenseTransactionAndFetch = (transactionId) => async(dispatc
             }})
         dispatch(setExpenseTransactions(fetchRes.data?.data));
     } catch (error) {
-        dispatch(setError(error.message));
+        // dispatch(setError(error.message));
         console.log(error);
     }
 }

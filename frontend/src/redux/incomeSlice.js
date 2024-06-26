@@ -31,7 +31,7 @@ export const addIncomeTransactionAndFetch = (title, amount) => async(dispatch) =
                 }})
         dispatch(setIncomeTransactions(fetchRes.data?.data))
     } catch (error) {
-        dispatch(setError(error.message));
+        // dispatch(setError(error.message));
         console.log(error);
     }
 }
@@ -48,7 +48,7 @@ export const fetchIncomes = () => async(dispatch) => {
             }})
         dispatch(setIncomeTransactions(res.data?.data))
     } catch (error) {
-        dispatch(setError(error.message));
+        // dispatch(setError(error.message));
         console.log(error);
     }
 }
@@ -72,7 +72,7 @@ export const deleteIncomeTransactionAndFetch = (transactionId) => async(dispatch
             }})
         dispatch(setIncomeTransactions(fetchRes.data?.data))
     } catch (error) {
-        dispatch(setError(error.message));
+        // dispatch(setError(error.message));
         console.log(error);
     }
 }
