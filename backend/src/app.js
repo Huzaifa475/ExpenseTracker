@@ -23,6 +23,11 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
+  });
+
 import userRouter from './routes/user.router.js'
 import incomeRouter from './routes/income.router.js'
 import expenseRouter from './routes/expense.router.js'
