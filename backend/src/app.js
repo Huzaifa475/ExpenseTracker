@@ -6,7 +6,7 @@ const app = express();
 
 app.use(cors({
     // origin: ["https://deploy-mern-1whq.vercel.app"],
-    origin: ["https://expense-tracker-blue-pi.vercel.app"],
+    origin: ["https://expense-tracker-kwm6-frontend.vercel.app"],
     methods: ["POST", "GET", "DELETE", "PATCH"],
     credentials: true
 }));
