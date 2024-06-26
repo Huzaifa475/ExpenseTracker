@@ -5,7 +5,6 @@ import cookieParser from 'cookie-parser'
 const app = express();
 
 app.use(cors({
-    // origin: ["https://expense-tracker-two-weld.vercel.app"],
     origin: "*",
     methods: ["POST", "GET", "DELETE", "PATCH"],
     credentials: true
