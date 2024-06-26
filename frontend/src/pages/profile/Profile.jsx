@@ -19,6 +19,7 @@ const Profile = () => {
     const [selectedFile, setSelectedFile] = useState(null);
     const [previewUrl, setPreviewUrl] = useState(null);
     const [avatar, setAvatar] = useState(null)
+    const token = localStorage.getItem('accessToken');
 
     axios.defaults.withCredentials = true;
     useEffect(() => {

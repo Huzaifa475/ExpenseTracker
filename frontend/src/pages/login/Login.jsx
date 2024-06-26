@@ -47,6 +47,8 @@ const Login = () => {
           password
         }
       })
+      const token = res.data?.data?.refreshToken; 
+      localStorage.setItem('accessToken', token);
       navigate('/home')
     }
     catch (error) {
