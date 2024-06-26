@@ -6,7 +6,7 @@ const MONGODB_URI = "mongodb+srv://huzaifa:POP4759H@learnmongo.bcryjbr.mongodb.n
 
 const connectDB = async () => {
     try {
-        const connectionInstance = await mongoose.connect(`${MONGODB_URI}/${DB_NAME}`);
+        const connectionInstance = await mongoose.connect(`${MONGODB_URI}`);
         console.log(`\n MongoDB connected !! DB host ${connectionInstance.connection.host}`);
     } catch (error) {
         console.log(error);
