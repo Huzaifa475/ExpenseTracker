@@ -24,6 +24,7 @@ export const addExpenseTransactionAndFetch = (title, amount) => async (dispatch)
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${accessToken}`, 
         }})
+        console.log(addRes);
         const fetchRes = await axios({
             method: 'post',
             url: 'https://expense-tracker-blue-pi.vercel.app/api/v1/expense/get-transactions',
@@ -32,6 +33,7 @@ export const addExpenseTransactionAndFetch = (title, amount) => async (dispatch)
                 'Authorization': `Bearer ${accessToken}`, 
             }})
             //   const fetchRes = await axios.get('https://expense-tracker-blue-pi.vercel.app/api/v1/expense/get-transactions');
+            console.log(fetchRes);
       dispatch(setExpenseTransactions(fetchRes.data?.data));
     } catch (error) {
       console.error(error);
