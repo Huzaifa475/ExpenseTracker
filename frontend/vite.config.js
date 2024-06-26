@@ -5,10 +5,10 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   server: {
     proxy: {
-      '/': {
-        target: 'https://expense-tracker-two-weld.vercel.app',
+      '/api': {
+        target: 'http://localhost:3000',
         changeOrigin: true,
-        rewrite: (path) => path.replace('/^\//', '')
+        rewrite: (path) => path.replace('/^\/api/', '')
       }
     }
   },

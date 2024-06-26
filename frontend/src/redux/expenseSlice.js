@@ -4,11 +4,11 @@ import axios from 'axios'
 axios.defaults.withCredentials = true;
 export const addExpenseTransactionAndFetch = (title, amount) => async (dispatch) => {
     try {
-      const addRes = await axios.post('https://expense-tracker-two-weld.vercel.app/api/v1/expense/addtransaction', {
+      const addRes = await axios.post('/api/v1/expense/addtransaction', {
         content: title,
         amount
       });
-      const fetchRes = await axios.get('https://expense-tracker-two-weld.vercel.app/api/v1/expense/get-transactions');
+      const fetchRes = await axios.get('/api/v1/expense/get-transactions');
       dispatch(setExpenseTransactions(fetchRes.data?.data));
     } catch (error) {
       console.error(error);
@@ -17,7 +17,7 @@ export const addExpenseTransactionAndFetch = (title, amount) => async (dispatch)
 
 export const fetchExpenses = () => async (dispatch) => {
     try {
-      const res = await axios.get('https://expense-tracker-two-weld.vercel.app/api/v1/expense/get-transactions');
+      const res = await axios.get('/api/v1/expense/get-transactions');
         dispatch(setExpenseTransactions(res.data?.data));
     } catch (error) {
         console.log(error);
@@ -26,8 +26,8 @@ export const fetchExpenses = () => async (dispatch) => {
 
 export const deleteExpenseTransactionAndFetch = (transactionId) => async(dispatch) =>{
     try {
-        const res = await axios.delete(`https://expense-tracker-two-weld.vercel.app/api/v1/expense/deletetransaction/${transactionId}`)
-        const fetchRes = await axios.get('https://expense-tracker-two-weld.vercel.app/api/v1/expense/get-transactions');
+        const res = await axios.delete(`/api/v1/expense/deletetransaction/${transactionId}`)
+        const fetchRes = await axios.get('/api/v1/expense/get-transactions');
         dispatch(setExpenseTransactions(fetchRes.data?.data));
     } catch (error) {
         console.log(error);
