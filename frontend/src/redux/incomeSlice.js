@@ -108,5 +108,5 @@ const incomeSlice = createSlice({
     }
 })
 
-export const  {setIncomeTransactions} = incomeSlice.actions;
+export const  {setIncomeTransactions, setError, setLoading} = incomeSlice.actions;
 export default incomeSlice.reducer;

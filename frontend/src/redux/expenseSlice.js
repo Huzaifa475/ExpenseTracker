@@ -115,5 +115,5 @@ const expenseSlice = createSlice({
     }
 })
 
-export const {setExpenseTransactions} = expenseSlice.actions;
+export const {setExpenseTransactions, setError, setLoading} = expenseSlice.actions;
 export default expenseSlice.reducer;
