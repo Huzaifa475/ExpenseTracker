@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
+import mongoose from 'mongoose';
 
 const app = express();
 
@@ -9,6 +10,8 @@ app.use(cors({
     methods: ["POST", "GET", "DELETE", "PATCH"],
     credentials: true
 }));
+
+mongoose.connect(process.env.URI)
 
 app.use(express.json({limit: "16kb"}))
 
