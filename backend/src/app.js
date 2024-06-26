@@ -5,7 +5,8 @@ import cookieParser from 'cookie-parser'
 const app = express();
 
 app.use(cors({
-    origin: ["https://deploy-mern-1whq.vercel.app"],
+    // origin: ["https://deploy-mern-1whq.vercel.app"],
+    origin: ["https://expense-tracker-blue-pi.vercel.app"],
     methods: ["POST", "GET", "DELETE", "PATCH"],
     credentials: true
 }));
@@ -18,14 +19,11 @@ app.use(express.static("public"))
 
 app.use(cookieParser())
 
-<<<<<<< HEAD
-=======
 app.get('/', (req, res) => {
     console.log("1234");
     res.send('Hello World!');
 });
 
->>>>>>> 795f625043dd1e85503f23506d2a6d4b52569512
 import userRouter from './routes/user.router.js'
 import incomeRouter from './routes/income.router.js'
 import expenseRouter from './routes/expense.router.js'
