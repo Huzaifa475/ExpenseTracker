@@ -19,7 +19,7 @@ app.use(express.static("public"))
 
 app.use(cookieParser())
 
-app.get('/', (req, res) => {
+app.get('/api/v1', (req, res) => {
     console.log("1234");
     res.send('Hello World!');
 });
