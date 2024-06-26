@@ -5,7 +5,7 @@ import cookieParser from 'cookie-parser'
 const app = express();
 
 app.use(cors({
-    origin: "*",
+    origin: ["https://deploy-mern-1whq.vercel.app"],
     methods: ["POST", "GET", "DELETE", "PATCH"],
     credentials: true
 }));
@@ -18,7 +18,7 @@ app.use(express.static("public"))
 
 app.use(cookieParser())
 
-app.get('/api/v1', (req, res) => {
+app.get('/', (req, res) => {
     console.log("1234");
     res.send('Hello World!');
 });
