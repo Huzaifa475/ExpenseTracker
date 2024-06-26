@@ -21,6 +21,7 @@ export const addIncomeTransactionAndFetch = (title, amount) => async(dispatch) =
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${accessToken}`, 
             }})
+            dispatch(setLoading());
             const fetchRes = await axios({
                 method: 'post',
                 url: 'https://expense-tracker-blue-pi.vercel.app/api/v1/income/get-transactions',
@@ -30,12 +31,14 @@ export const addIncomeTransactionAndFetch = (title, amount) => async(dispatch) =
                 }})
         dispatch(setIncomeTransactions(fetchRes.data?.data))
     } catch (error) {
+        dispatch(setError(error.message));
         console.log(error);
     }
 }
 
 export const fetchIncomes = () => async(dispatch) => {
     try {
+        dispatch(setLoading());
         const res = await axios({
             method: 'post',
             url: 'https://expense-tracker-blue-pi.vercel.app/api/v1/income/get-transactions',
@@ -45,6 +48,7 @@ export const fetchIncomes = () => async(dispatch) => {
             }})
         dispatch(setIncomeTransactions(res.data?.data))
     } catch (error) {
+        dispatch(setError(error.message));
         console.log(error);
     }
 }
@@ -58,6 +62,7 @@ export const deleteIncomeTransactionAndFetch = (transactionId) => async(dispatch
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${accessToken}`, 
             }})
+            dispatch(setLoading());
         const fetchRes = await axios({
             method: 'post',
             url: 'https://expense-tracker-blue-pi.vercel.app/api/v1/income/get-transactions',
@@ -67,6 +72,7 @@ export const deleteIncomeTransactionAndFetch = (transactionId) => async(dispatch
             }})
         dispatch(setIncomeTransactions(fetchRes.data?.data))
     } catch (error) {
+        dispatch(setError(error.message));
         console.log(error);
     }
 }
@@ -75,7 +81,7 @@ const incomeSlice = createSlice({
     name: "income",
     initialState: {
         incomeTransaction: [],
-        loading: true,
+        loading: false,
         error: null,
         totalAmt: 0
     },
@@ -90,6 +96,13 @@ const incomeSlice = createSlice({
                 t += total[index];
             }
             state.totalAmt = t;
+        },
+        setLoading: (state) => {
+            state.loading = true; // Set loading to true when starting an API request
+        },
+        setError: (state, action) => {
+            state.loading = false; // Set loading to false on error
+            state.error = action.payload;
         }
     }
 })

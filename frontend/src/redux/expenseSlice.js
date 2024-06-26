@@ -25,6 +25,7 @@ export const addExpenseTransactionAndFetch = (title, amount) => async (dispatch)
             'Authorization': `Bearer ${accessToken}`, 
         }})
         console.log(addRes);
+        dispatch(setLoading());
         const fetchRes = await axios({
             method: 'post',
             url: 'https://expense-tracker-blue-pi.vercel.app/api/v1/expense/get-transactions',
@@ -36,12 +37,14 @@ export const addExpenseTransactionAndFetch = (title, amount) => async (dispatch)
             console.log(fetchRes);
       dispatch(setExpenseTransactions(fetchRes.data?.data));
     } catch (error) {
+        dispatch(setError(error.message));
       console.error(error);
     }
 };
 
 export const fetchExpenses = () => async (dispatch) => {
     try {
+        dispatch(setLoading());
       const res = await axios({
         method: 'post',
         url: 'https://expense-tracker-blue-pi.vercel.app/api/v1/expense/get-transactions',
@@ -51,6 +54,7 @@ export const fetchExpenses = () => async (dispatch) => {
         }})
         dispatch(setExpenseTransactions(res.data?.data));
     } catch (error) {
+        dispatch(setError(error.message));
         console.log(error);
     }
 };
@@ -65,6 +69,7 @@ export const deleteExpenseTransactionAndFetch = (transactionId) => async(dispatc
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${accessToken}`, 
             }})
+            dispatch(setLoading());
         const fetchRes = await axios({
             method: 'post',
             url: 'https://expense-tracker-blue-pi.vercel.app/api/v1/expense/get-transactions',
@@ -74,6 +79,7 @@ export const deleteExpenseTransactionAndFetch = (transactionId) => async(dispatc
             }})
         dispatch(setExpenseTransactions(fetchRes.data?.data));
     } catch (error) {
+        dispatch(setError(error.message));
         console.log(error);
     }
 }
@@ -82,7 +88,7 @@ const expenseSlice = createSlice({
     name: "expense",
     initialState: {
         expenseTransaction: [],
-        loading: true,
+        loading: false,
         error: null,
         totalAmt: 0
     },
@@ -97,6 +103,13 @@ const expenseSlice = createSlice({
                 t += total[index];
             }
             state.totalAmt = t;
+        },
+        setLoading: (state) => {
+            state.loading = true; // Set loading to true when starting an API request
+        },
+        setError: (state, action) => {
+            state.loading = false; // Set loading to false on error
+            state.error = action.payload;
         }
     }
 })
