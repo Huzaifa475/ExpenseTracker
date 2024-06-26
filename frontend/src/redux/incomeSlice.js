@@ -37,20 +37,21 @@ export const addIncomeTransactionAndFetch = (title, amount) => async(dispatch) =
 }
 
 export const fetchIncomes = () => async(dispatch) => {
-    try {
-        dispatch(setLoading());
-        const res = await axios({
-            method: 'get',
-            url: 'https://expense-tracker-blue-pi.vercel.app/api/v1/income/get-transactions',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${accessToken}`, 
-            }})
-        dispatch(setIncomeTransactions(res.data?.data))
-    } catch (error) {
-        // dispatch(setError(error.message));
-        // console.log(error);
-    }
+    dispatch(setLoading());
+    const res = await axios({
+        method: 'get',
+        url: 'https://expense-tracker-blue-pi.vercel.app/api/v1/income/get-transactions',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${accessToken}`, 
+        }})
+    dispatch(setIncomeTransactions(res.data?.data))
+    // try {
+
+    // } catch (error) {
+    //     // dispatch(setError(error.message));
+    //     // console.log(error);
+    // }
 }
 
 export const deleteIncomeTransactionAndFetch = (transactionId) => async(dispatch) =>{
