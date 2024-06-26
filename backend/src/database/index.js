@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 import { DB_NAME } from '../constant.js';
 
-const MONGODB_URI = process.env.MONGODB_URI;
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb+srv://huzaifa:POP4759H@learnmongo.bcryjbr.mongodb.net";
 
 const connectDB = async () => {
     try {
