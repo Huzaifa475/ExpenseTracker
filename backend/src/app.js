@@ -11,7 +11,7 @@ app.use(cors({
     credentials: true
 }));
 
-mongoose.connect(process.env.URI)
+mongoose.connect('mongodb+srv://huzaifa:POP4759H@learnmongo.bcryjbr.mongodb.net/test?retryWrites=true&w=majority&appName=LearnMongo')
 
 app.use(express.json({limit: "16kb"}))
 
