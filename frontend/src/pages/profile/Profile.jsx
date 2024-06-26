@@ -24,7 +24,15 @@ const Profile = () => {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const res = await axios.get('https://expense-tracker-blue-pi.vercel.app/api/v1/users/getuser')
+                // const res = await axios.get('https://expense-tracker-blue-pi.vercel.app/api/v1/users/getuser')
+                const res = await axios({
+                   method: 'get',
+                   url: 'https://expense-tracker-blue-pi.vercel.app/api/v1/users/getuser',
+                   headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${accessToken}`,
+                  },
+                })
                 setUsername(res.data?.data?.username)
                 setEmail(res.data?.data?.email)
             } catch (error) {
@@ -37,7 +45,16 @@ const Profile = () => {
     const logoutHandle = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('https://expense-tracker-blue-pi.vercel.app/api/v1/users/logout')
+            // const res = await axios.post('https://expense-tracker-blue-pi.vercel.app/api/v1/users/logout')
+            const res = await axios({
+                method: 'post',
+                url: 'https://expense-tracker-blue-pi.vercel.app/api/v1/users/logout',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${accessToken}`, // Include JWT token here
+                },
+            })
+
             console.log(res);
             navigate('/login')
         } catch (error) {
@@ -72,6 +89,10 @@ const Profile = () => {
             const response = await fetch('https://expense-tracker-blue-pi.vercel.app/api/v1/users/uploadavatar', {
                 method: 'POST',
                 body: formData,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${accessToken}`, // Include JWT token here
+                },
             });
 
             if (!response.ok) {
@@ -88,7 +109,14 @@ const Profile = () => {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const res = await axios.get('https://expense-tracker-blue-pi.vercel.app/api/v1/users/getuser')
+                const res = await axios({
+                    method: 'get',
+                    url: 'https://expense-tracker-blue-pi.vercel.app/api/v1/users/getuser',
+                    headers: {
+                     'Content-Type': 'application/json',
+                     'Authorization': `Bearer ${accessToken}`,
+                   },
+                 })
                 setAvatar(res.data?.data?.avatar)
             } catch (error) {
                 console.log(error);

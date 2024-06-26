@@ -4,11 +4,29 @@ import axios from 'axios'
 axios.defaults.withCredentials = true;
 export const addIncomeTransactionAndFetch = (title, amount) => async(dispatch) => {
     try {
-        const res = await axios.post('https://expense-tracker-blue-pi.vercel.app/api/v1/income/addtransaction', {
-            content: title,
-            amount
-        })
-        const fetchRes = await axios.get('https://expense-tracker-blue-pi.vercel.app/api/v1/income/get-transactions')
+        // const res = await axios.post('https://expense-tracker-blue-pi.vercel.app/api/v1/income/addtransaction', {
+        //     content: title,
+        //     amount
+        // })
+        // const fetchRes = await axios.get('https://expense-tracker-blue-pi.vercel.app/api/v1/income/get-transactions')
+        const addRes = await axios({
+            method: 'post',
+            url: 'https://expense-tracker-blue-pi.vercel.app/api/v1/income/addtransaction',
+            data: {
+                content: title,
+                amount
+            },
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${accessToken}`, 
+            }})
+            const fetchRes = await axios({
+                method: 'post',
+                url: 'https://expense-tracker-blue-pi.vercel.app/api/v1/income/get-transactions',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${accessToken}`, 
+                }})
         dispatch(setIncomeTransactions(fetchRes.data?.data))
     } catch (error) {
         console.log(error);
@@ -17,7 +35,13 @@ export const addIncomeTransactionAndFetch = (title, amount) => async(dispatch) =
 
 export const fetchIncomes = () => async(dispatch) => {
     try {
-        const res = await axios.get('https://expense-tracker-blue-pi.vercel.app/api/v1/income/get-transactions')
+        const res = await axios({
+            method: 'post',
+            url: 'https://expense-tracker-blue-pi.vercel.app/api/v1/income/get-transactions',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${accessToken}`, 
+            }})
         dispatch(setIncomeTransactions(res.data?.data))
     } catch (error) {
         console.log(error);
@@ -26,8 +50,20 @@ export const fetchIncomes = () => async(dispatch) => {
 
 export const deleteIncomeTransactionAndFetch = (transactionId) => async(dispatch) =>{
     try {
-        const res = await axios.delete(`https://expense-tracker-blue-pi.vercel.app/api/v1/income/deletetransaction/${transactionId}`)
-        const fetchRes = await axios.get('https://expense-tracker-blue-pi.vercel.app/api/v1/income/get-transactions')
+        const res = await axios({
+            method: 'post',
+            url: `https://expense-tracker-blue-pi.vercel.app/api/v1/expense/deletetransaction/${transactionId}`,
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${accessToken}`, 
+            }})
+        const fetchRes = await axios({
+            method: 'post',
+            url: 'https://expense-tracker-blue-pi.vercel.app/api/v1/income/get-transactions',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${accessToken}`, 
+            }})
         dispatch(setIncomeTransactions(fetchRes.data?.data))
     } catch (error) {
         console.log(error);
