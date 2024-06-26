@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
 
 axios.defaults.withCredentials = true;
-const token = localStorage.getItem('accessToken');
+const accessToken = localStorage.getItem('accessToken');
 export const addIncomeTransactionAndFetch = (title, amount) => async(dispatch) => {
     try {
         // const res = await axios.post('https://expense-tracker-blue-pi.vercel.app/api/v1/income/addtransaction', {
