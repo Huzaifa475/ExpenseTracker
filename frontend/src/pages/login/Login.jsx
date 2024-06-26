@@ -40,7 +40,7 @@ const Login = () => {
     try {
       res = await axios({
         method: "post",
-        url: "/users/login",
+        url: "https://expense-tracker-two-weld.vercel.app/users/login",
         data: {
           username,
           password

@@ -23,7 +23,7 @@ const Profile = () => {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const res = await axios.get('/users/getuser')
+                const res = await axios.get('https://expense-tracker-two-weld.vercel.app/users/getuser')
                 setUsername(res.data?.data?.username)
                 setEmail(res.data?.data?.email)
             } catch (error) {
@@ -36,7 +36,7 @@ const Profile = () => {
     const logoutHandle = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('/users/logout')
+            const res = await axios.post('https://expense-tracker-two-weld.vercel.app/users/logout')
             console.log(res);
             navigate('/login')
         } catch (error) {
@@ -68,7 +68,7 @@ const Profile = () => {
             const formData = new FormData();
             formData.append('avatar', selectedFile);
 
-            const response = await fetch('/users/uploadavatar', {
+            const response = await fetch('https://expense-tracker-two-weld.vercel.app/users/uploadavatar', {
                 method: 'POST',
                 body: formData,
             });

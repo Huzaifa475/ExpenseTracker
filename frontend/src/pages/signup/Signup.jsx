@@ -23,7 +23,7 @@ const Signup = () => {
     try{
         res = await axios({
           method: 'post',
-          url: '/users/register',
+          url: 'https://expense-tracker-two-weld.vercel.app/users/register',
           data: {
             username,
             email,
