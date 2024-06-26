@@ -27,7 +27,7 @@ export const addExpenseTransactionAndFetch = (title, amount) => async (dispatch)
         console.log(addRes);
         dispatch(setLoading());
         const fetchRes = await axios({
-            method: 'post',
+            method: 'get',
             url: 'https://expense-tracker-blue-pi.vercel.app/api/v1/expense/get-transactions',
             headers: {
                 'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ export const fetchExpenses = () => async (dispatch) => {
     try {
         dispatch(setLoading());
       const res = await axios({
-        method: 'post',
+        method: 'get',
         url: 'https://expense-tracker-blue-pi.vercel.app/api/v1/expense/get-transactions',
         headers: {
             'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ export const deleteExpenseTransactionAndFetch = (transactionId) => async(dispatc
     try {
         // const res = await axios.delete(`https://expense-tracker-blue-pi.vercel.app/api/v1/expense/deletetransaction/${transactionId}`)
         const addRes = await axios({
-            method: 'post',
+            method: 'delete',
             url: `https://expense-tracker-blue-pi.vercel.app/api/v1/expense/deletetransaction/${transactionId}`,
             headers: {
                 'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ export const deleteExpenseTransactionAndFetch = (transactionId) => async(dispatc
             }})
             dispatch(setLoading());
         const fetchRes = await axios({
-            method: 'post',
+            method: 'get',
             url: 'https://expense-tracker-blue-pi.vercel.app/api/v1/expense/get-transactions',
             headers: {
                 'Content-Type': 'application/json',
