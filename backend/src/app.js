@@ -1,18 +1,15 @@
 import express from 'express'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
-import mongoose from 'mongoose';
 
 const app = express();
 
 app.use(cors({
-    origin: ["https://expense-tracker-two-weld.vercel.app"],
-    // origin: "*",
+    // origin: ["https://expense-tracker-two-weld.vercel.app"],
+    origin: "*",
     methods: ["POST", "GET", "DELETE", "PATCH"],
     credentials: true
 }));
-
-// mongoose.connect('mongodb+srv://huzaifa:POP4759H@learnmongo.bcryjbr.mongodb.net/test?retryWrites=true&w=majority&appName=LearnMongo')
 
 app.use(express.json({limit: "16kb"}))
 
