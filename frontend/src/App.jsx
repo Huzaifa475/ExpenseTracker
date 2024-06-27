@@ -11,17 +11,15 @@ import Profile from './pages/profile/Profile'
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Signup />} />
-          <Route path='/api/v1/login' element={<Login />} />
-          <Route path='/api/v1/header' element={<Header />} />
-          <Route path='/api/v1/home' element={<Home />} />
-          <Route path='/api/v1/income' element={<Income />} />
-          <Route path='/api/v1/expense' element={<Expense />} />
-          <Route path='/api/v1/profile' element={<Profile/>}/>
-        </Routes>
-      </BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Signup />} />
+        <Route path='/api/v1/login' element={<Login />} />
+        <Route path='/api/v1/header' element={<Header />} />
+        <Route path='/api/v1/home' element={<Home />} />
+        <Route path='/api/v1/income' element={<Income />} />
+        <Route path='/api/v1/expense' element={<Expense />} />
+        <Route path='/api/v1/profile' element={<Profile />} />
+      </Routes>
     </>
   )
 }
