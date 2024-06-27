@@ -49,7 +49,7 @@ const Login = () => {
       })
       console.log(res);
       console.log(res.data?.data?.refreshToken);
-      const token = res.data?.data?.refreshToken; 
+      const token = res.data?.data?.accessToken; 
       localStorage.setItem('accessToken', token);
       navigate('/home')
     }
