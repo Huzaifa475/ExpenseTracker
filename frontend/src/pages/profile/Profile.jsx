@@ -51,22 +51,25 @@ const Profile = () => {
         e.preventDefault();
         try {
             // const res = await axios.post('https://expense-tracker-blue-pi.vercel.app/api/v1/users/logout')
-            localStorage.removeItem('accessToken')
-            dispatch(resetIncomeState())
-            dispatch(resetExpenseState())
             const res = await axios({
                 method: 'post',
                 url: 'https://expense-tracker-blue-pi.vercel.app/api/v1/users/logout',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${accessToken}`, // Include JWT token here
-                },
+                // headers: {
+                //     'Content-Type': 'application/json',
+                //     'Authorization': `Bearer ${accessToken}`, // Include JWT token here
+                // },
             })
             console.log(res);
             navigate('/login')
         } catch (error) {
             console.log(error);
         }
+        finally {
+            localStorage.removeItem('accessToken'); // Remove token from localStorage
+            dispatch(resetIncomeState()); // Reset income state
+            dispatch(resetExpenseState()); // Reset expense state
+            dispatch({ type: 'LOGOUT' }); // Update auth state
+          }
     }
 
     const handleFileSelect = async (e) => {
