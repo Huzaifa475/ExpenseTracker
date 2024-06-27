@@ -35,7 +35,7 @@ const Signup = () => {
           icon: '👏'
         });
         setTimeout(() => {
-          navigate('https://expense-tracker-pop.vercel.app/api/v1/login');
+          navigate('/login');
         }, 500);
     }
     catch (error) {
@@ -79,7 +79,7 @@ const Signup = () => {
   };
 
   const handleLogin = () => {
-    navigate('https://expense-tracker-pop.vercel.app/api/v1/login');
+    navigate('/login');
   }
   return (
     <>
