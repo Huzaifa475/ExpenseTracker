@@ -41,7 +41,7 @@ const Login = () => {
     try {
       res = await axios({
         method: "post",
-        url: "/api/v1/users/login",
+        url: "https://expense-tracker-blue-pi.vercel.app/api/v1/users/login",
         data: {
           username,
           password
