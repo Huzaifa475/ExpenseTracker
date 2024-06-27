@@ -68,7 +68,6 @@ const Profile = () => {
             localStorage.removeItem('accessToken'); // Remove token from localStorage
             dispatch(resetIncomeState()); // Reset income state
             dispatch(resetExpenseState()); // Reset expense state
-            dispatch({ type: 'LOGOUT' }); // Update auth state
           }
     }
 
