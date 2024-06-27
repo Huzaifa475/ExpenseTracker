@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState , useEffect} from 'react'
 import './styles.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
@@ -17,6 +17,30 @@ const Signup = () => {
   const handleClick = () => {
     setShowPassword(prev => !prev);
   }
+
+  useEffect(() => {
+    const handlePopState = () => {
+      navigate('/');
+    };
+
+    window.addEventListener('popstate', handlePopState);
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, [navigate])
+
+  useEffect(() => {
+    const handlePushState = () => {
+      navigate('/');
+    };
+
+    window.addEventListener('popstate', handlePushState);
+
+    return () => {
+      window.removeEventListener('popstate', handlePushState);
+    };
+  }, [navigate])
 
   axios.defaults.withCredentials = true;
   const handleSingup = async () => {

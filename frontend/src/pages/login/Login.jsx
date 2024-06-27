@@ -15,19 +15,28 @@ const Login = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const handlePushState = (event) => {
-      if (window.location.pathname === 'login') {
-        window.history.pushState(null, '', window.location.pathname)
-      }
-    }
+    const handlePopState = () => {
+      navigate('/');
+    };
 
-    window.history.pushState(null, '', window.location.pathname);
+    window.addEventListener('popstate', handlePopState);
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, [navigate])
+
+  useEffect(() => {
+    const handlePushState = () => {
+      navigate('/login');
+    };
+
     window.addEventListener('popstate', handlePushState);
 
     return () => {
       window.removeEventListener('popstate', handlePushState);
     };
-  }, [location.pathname])
+  }, [navigate])
 
   const handleClick = () => {
     setShowPassword(prev => !prev);
