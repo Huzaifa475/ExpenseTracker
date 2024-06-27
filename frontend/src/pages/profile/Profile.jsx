@@ -31,7 +31,7 @@ const Profile = () => {
             try {
                 const res = await axios({
                     method: 'get',
-                    url: '/api/v1/users/getuser',
+                    url: 'https://expense-tracker-blue-pi.vercel.app/api/v1/users/getuser',
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${accessToken}`,
@@ -51,7 +51,7 @@ const Profile = () => {
         try {
             const res = await axios({
                 method: 'post',
-                url: '/api/v1/users/logout',
+                url: 'https://expense-tracker-blue-pi.vercel.app/api/v1/users/logout',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${accessToken}`,
@@ -93,7 +93,7 @@ const Profile = () => {
             const formData = new FormData();
             formData.append('avatar', selectedFile);
 
-            const response = await fetch('/api/v1/users/uploadavatar', {
+            const response = await fetch('https://expense-tracker-blue-pi.vercel.app/api/v1/users/uploadavatar', {
                 method: 'POST',
                 body: formData,
                 headers: {
@@ -118,7 +118,7 @@ const Profile = () => {
             try {
                 const res = await axios({
                     method: 'get',
-                    url: '/api/v1/users/getuser',
+                    url: 'https://expense-tracker-blue-pi.vercel.app/api/v1/users/getuser',
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${accessToken}`,
