@@ -85,14 +85,16 @@ export const deleteExpenseTransactionAndFetch = (transactionId) => async(dispatc
     }
 }
 
+const initialState = {
+    expenseTransaction: [],
+    loading: false,
+    error: null,
+    totalAmt: 0
+}
+
 const expenseSlice = createSlice({
     name: "expense",
-    initialState: {
-        expenseTransaction: [],
-        loading: false,
-        error: null,
-        totalAmt: 0
-    },
+    initialState,
     reducers: {
         setExpenseTransactions: (state, action) => {
             state.expenseTransaction = action.payload;
@@ -112,7 +114,7 @@ const expenseSlice = createSlice({
             state.loading = false; // Set loading to false on error
             state.error = action.payload;
         },
-        resetExpenseState: (state) => initialState
+        resetExpenseState: () => initialState
     }
 })
 

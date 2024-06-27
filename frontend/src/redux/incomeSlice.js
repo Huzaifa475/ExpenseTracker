@@ -78,14 +78,16 @@ export const deleteIncomeTransactionAndFetch = (transactionId) => async(dispatch
     }
 }
 
+const initialState = {
+    incomeTransaction: [],
+    loading: false,
+    error: null,
+    totalAmt: 0
+}
+
 const incomeSlice = createSlice({
     name: "income",
-    initialState: {
-        incomeTransaction: [],
-        loading: false,
-        error: null,
-        totalAmt: 0
-    },
+    initialState,
     reducers: {
         setIncomeTransactions: (state, action) => {
             state.incomeTransaction = action.payload
@@ -105,7 +107,7 @@ const incomeSlice = createSlice({
             state.loading = false; // Set loading to false on error
             state.error = action.payload;
         },
-        resetIncomeState: (state) => initialState
+        resetIncomeState: () => initialState
     }
 })
 
