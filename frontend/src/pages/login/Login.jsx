@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import './styles.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
@@ -16,7 +16,7 @@ const Login = () => {
 
   useEffect(() => {
     const handlePushState = (event) => {
-      if(window.location.pathname === 'login'){
+      if (window.location.pathname === 'login') {
         window.history.pushState(null, '', window.location.pathname)
       }
     }
@@ -47,7 +47,8 @@ const Login = () => {
           password
         }
       })
-      const token = res.data?.data?.accessToken; 
+      console.log(res.data?.data?.accessToken);
+      const token = res.data?.data?.accessToken;
       localStorage.setItem('accessToken', token);
       navigate('/home')
     }

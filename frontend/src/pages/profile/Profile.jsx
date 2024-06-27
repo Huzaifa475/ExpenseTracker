@@ -6,7 +6,7 @@ import './styles.css'
 import axios from 'axios'
 import { useNavigate } from 'react-router'
 import styled from 'styled-components'
-import { useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { resetIncomeState } from '../../redux/incomeSlice.js'
 import { resetExpenseState } from '../../redux/expenseSlice.js'
 
@@ -29,14 +29,13 @@ const Profile = () => {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                // const res = await axios.get('https://expense-tracker-blue-pi.vercel.app/api/v1/users/getuser')
                 const res = await axios({
-                   method: 'get',
-                   url: 'https://expense-tracker-blue-pi.vercel.app/api/v1/users/getuser',
-                   headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${accessToken}`,
-                  },
+                    method: 'get',
+                    url: 'https://expense-tracker-blue-pi.vercel.app/api/v1/users/getuser',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${accessToken}`,
+                    },
                 })
                 setUsername(res.data?.data?.username)
                 setEmail(res.data?.data?.email)
@@ -50,13 +49,12 @@ const Profile = () => {
     const logoutHandle = async (e) => {
         e.preventDefault();
         try {
-            // const res = await axios.post('https://expense-tracker-blue-pi.vercel.app/api/v1/users/logout')
             const res = await axios({
                 method: 'post',
                 url: 'https://expense-tracker-blue-pi.vercel.app/api/v1/users/logout',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${accessToken}`, // Include JWT token here
+                    'Authorization': `Bearer ${accessToken}`,
                 },
             })
             console.log(res);
@@ -65,10 +63,10 @@ const Profile = () => {
             console.log(error);
         }
         finally {
-            localStorage.removeItem('accessToken'); // Remove token from localStorage
-            dispatch(resetIncomeState()); // Reset income state
-            dispatch(resetExpenseState()); // Reset expense state
-          }
+            localStorage.removeItem('accessToken'); 
+            dispatch(resetIncomeState()); 
+            dispatch(resetExpenseState()); 
+        }
     }
 
     const handleFileSelect = async (e) => {
@@ -122,10 +120,10 @@ const Profile = () => {
                     method: 'get',
                     url: 'https://expense-tracker-blue-pi.vercel.app/api/v1/users/getuser',
                     headers: {
-                     'Content-Type': 'application/json',
-                     'Authorization': `Bearer ${accessToken}`,
-                   },
-                 })
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${accessToken}`,
+                    },
+                })
                 setAvatar(res.data?.data?.avatar)
             } catch (error) {
                 console.log(error);
