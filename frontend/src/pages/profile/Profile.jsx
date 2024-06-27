@@ -47,6 +47,7 @@ const Profile = () => {
         e.preventDefault();
         try {
             // const res = await axios.post('https://expense-tracker-blue-pi.vercel.app/api/v1/users/logout')
+            localStorage.removeItem('accessToken')
             const res = await axios({
                 method: 'post',
                 url: 'https://expense-tracker-blue-pi.vercel.app/api/v1/users/logout',
@@ -55,7 +56,6 @@ const Profile = () => {
                     'Authorization': `Bearer ${accessToken}`, // Include JWT token here
                 },
             })
-            localStorage.removeItem('accessToken')
             console.log(res);
             navigate('/login')
         } catch (error) {
