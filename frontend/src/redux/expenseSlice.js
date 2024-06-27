@@ -111,9 +111,10 @@ const expenseSlice = createSlice({
         setError: (state, action) => {
             state.loading = false; // Set loading to false on error
             state.error = action.payload;
-        }
+        },
+        resetExpenseState: (state) => initialState
     }
 })
 
-export const {setExpenseTransactions, setError, setLoading} = expenseSlice.actions;
+export const {setExpenseTransactions, setError, setLoading, resetExpenseState} = expenseSlice.actions;
 export default expenseSlice.reducer;

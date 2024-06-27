@@ -6,6 +6,9 @@ import './styles.css'
 import axios from 'axios'
 import { useNavigate } from 'react-router'
 import styled from 'styled-components'
+import { useDispatch} from 'react-redux'
+import { resetIncomeState } from '../../redux/incomeSlice.js'
+import { resetExpenseState } from '../../redux/expenseSlice.js'
 
 const StyledIcon = styled(FontAwesomeIcon)`
     width: 80%;
@@ -20,6 +23,7 @@ const Profile = () => {
     const [previewUrl, setPreviewUrl] = useState(null);
     const [avatar, setAvatar] = useState(null)
     const accessToken = localStorage.getItem('accessToken');
+    const dispatch = useDispatch()
 
     axios.defaults.withCredentials = true;
     useEffect(() => {
@@ -48,6 +52,8 @@ const Profile = () => {
         try {
             // const res = await axios.post('https://expense-tracker-blue-pi.vercel.app/api/v1/users/logout')
             localStorage.removeItem('accessToken')
+            dispatch(resetIncomeState())
+            dispatch(resetExpenseState())
             const res = await axios({
                 method: 'post',
                 url: 'https://expense-tracker-blue-pi.vercel.app/api/v1/users/logout',

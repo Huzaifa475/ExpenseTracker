@@ -104,9 +104,10 @@ const incomeSlice = createSlice({
         setError: (state, action) => {
             state.loading = false; // Set loading to false on error
             state.error = action.payload;
-        }
+        },
+        resetIncomeState: (state) => initialState
     }
 })
 
-export const  {setIncomeTransactions, setError, setLoading} = incomeSlice.actions;
+export const  {setIncomeTransactions, setError, setLoading, resetIncomeState} = incomeSlice.actions;
 export default incomeSlice.reducer;
