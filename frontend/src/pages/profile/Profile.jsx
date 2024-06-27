@@ -54,10 +54,10 @@ const Profile = () => {
             const res = await axios({
                 method: 'post',
                 url: 'https://expense-tracker-blue-pi.vercel.app/api/v1/users/logout',
-                // headers: {
-                //     'Content-Type': 'application/json',
-                //     'Authorization': `Bearer ${accessToken}`, // Include JWT token here
-                // },
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${accessToken}`, // Include JWT token here
+                },
             })
             console.log(res);
             navigate('/login')
