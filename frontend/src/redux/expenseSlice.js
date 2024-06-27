@@ -7,7 +7,7 @@ export const addExpenseTransactionAndFetch = (title, amount) => async (dispatch)
     try {
         const addRes = await axios({
             method: 'post',
-            url: 'https://expense-tracker-blue-pi.vercel.app/api/v1/expense/addtransaction',
+            url: '/api/v1/expense/addtransaction',
             data: {
                 content: title,
                 amount
@@ -20,7 +20,7 @@ export const addExpenseTransactionAndFetch = (title, amount) => async (dispatch)
         dispatch(setLoading());
         const fetchRes = await axios({
             method: 'get',
-            url: 'https://expense-tracker-blue-pi.vercel.app/api/v1/expense/get-transactions',
+            url: '/api/v1/expense/get-transactions',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${accessToken}`,
@@ -38,7 +38,7 @@ export const fetchExpenses = () => async (dispatch) => {
         dispatch(setLoading());
         const res = await axios({
             method: 'get',
-            url: 'https://expense-tracker-blue-pi.vercel.app/api/v1/expense/get-transactions',
+            url: '/api/v1/expense/get-transactions',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${accessToken}`,
@@ -55,7 +55,7 @@ export const deleteExpenseTransactionAndFetch = (transactionId) => async (dispat
     try {
         const addRes = await axios({
             method: 'delete',
-            url: `https://expense-tracker-blue-pi.vercel.app/api/v1/expense/deletetransaction/${transactionId}`,
+            url: `/api/v1/expense/deletetransaction/${transactionId}`,
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${accessToken}`,
@@ -64,7 +64,7 @@ export const deleteExpenseTransactionAndFetch = (transactionId) => async (dispat
         dispatch(setLoading());
         const fetchRes = await axios({
             method: 'get',
-            url: 'https://expense-tracker-blue-pi.vercel.app/api/v1/expense/get-transactions',
+            url: '/api/v1/expense/get-transactions',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${accessToken}`,
