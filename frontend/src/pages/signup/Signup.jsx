@@ -18,29 +18,19 @@ const Signup = () => {
     setShowPassword(prev => !prev);
   }
 
-  useEffect(() => {
-    const handlePopState = () => {
-      navigate('/');
-    };
+  window.addEventListener('popstate', function(event) {
+    event.preventDefault();
+    if (event.state === 'back') {
+      navigate('/')
+    }
+  });
 
-    window.addEventListener('popstate', handlePopState);
-
-    return () => {
-      window.removeEventListener('popstate', handlePopState);
-    };
-  }, [navigate])
-
-  useEffect(() => {
-    const handlePushState = () => {
-      navigate('/');
-    };
-
-    window.addEventListener('popstate', handlePushState);
-
-    return () => {
-      window.removeEventListener('popstate', handlePushState);
-    };
-  }, [navigate])
+  window.addEventListener('pushstate', function(event) {
+    event.preventDefault();
+    if (event.state === 'front') {
+      navigate('/')
+    }
+  });
 
   axios.defaults.withCredentials = true;
   const handleSingup = async () => {

@@ -5,17 +5,12 @@ import { useNavigate } from 'react-router';
 
 const Home = () => {
   const navigate = useNavigate();
-  useEffect(() => {
-    const handlePopState = () => {
-      navigate('/home');
-    };
-
-    window.addEventListener('popstate', handlePopState);
-
-    return () => {
-      window.removeEventListener('popstate', handlePopState);
-    };
-  }, [navigate])
+  window.addEventListener('popstate', function(event) {
+    event.preventDefault();
+    if (event.state === 'back') {
+      navigate('/home')
+    }
+  });
   return (
     <div>
       <Header />

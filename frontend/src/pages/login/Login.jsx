@@ -14,29 +14,19 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  useEffect(() => {
-    const handlePopState = () => {
-      navigate('/');
-    };
+  window.addEventListener('popstate', function(event) {
+    event.preventDefault();
+    if (event.state === 'back') {
+      navigate('/')
+    }
+  });
 
-    window.addEventListener('popstate', handlePopState);
-
-    return () => {
-      window.removeEventListener('popstate', handlePopState);
-    };
-  }, [navigate])
-
-  useEffect(() => {
-    const handlePushState = () => {
-      navigate('/login');
-    };
-
-    window.addEventListener('popstate', handlePushState);
-
-    return () => {
-      window.removeEventListener('popstate', handlePushState);
-    };
-  }, [navigate])
+  window.addEventListener('pushstate', function(event) {
+    event.preventDefault();
+    if (event.state === 'front') {
+      navigate('/login')
+    }
+  });
 
   const handleClick = () => {
     setShowPassword(prev => !prev);
