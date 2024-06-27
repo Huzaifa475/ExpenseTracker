@@ -55,7 +55,7 @@ const Profile = () => {
                     'Authorization': `Bearer ${accessToken}`, // Include JWT token here
                 },
             })
-
+            localStorage.removeItem('accessToken')
             console.log(res);
             navigate('/login')
         } catch (error) {
