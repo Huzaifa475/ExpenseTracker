@@ -14,11 +14,11 @@ function App() {
       <Routes>
         <Route path='/' element={<Signup />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/api/v1/header' element={<Header />} />
-        <Route path='/api/v1/home' element={<Home />} />
-        <Route path='/api/v1/income' element={<Income />} />
-        <Route path='/api/v1/expense' element={<Expense />} />
-        <Route path='/api/v1/profile' element={<Profile />} />
+        <Route path='/header' element={<Header />} />
+        <Route path='/home' element={<Home />} />
+        <Route path='/income' element={<Income />} />
+        <Route path='/expense' element={<Expense />} />
+        <Route path='/profile' element={<Profile />} />
       </Routes>
     </>
   )

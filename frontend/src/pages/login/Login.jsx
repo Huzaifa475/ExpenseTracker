@@ -50,7 +50,7 @@ const Login = () => {
       console.log(res.data?.data?.accessToken);
       const token = res.data?.data?.accessToken;
       localStorage.setItem('accessToken', token);
-      navigate('/api/v1/home')
+      navigate('/home')
     }
     catch (error) {
       if (error.response) {
