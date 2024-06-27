@@ -35,7 +35,7 @@ const Signup = () => {
           icon: '👏'
         });
         setTimeout(() => {
-          navigate('/login');
+          navigate('/api/v1/login');
         }, 500);
     }
     catch (error) {
@@ -79,7 +79,7 @@ const Signup = () => {
   };
 
   const handleLogin = () => {
-    navigate('/login');
+    navigate('/api/v1/login');
   }
   return (
     <>
